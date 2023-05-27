@@ -14,6 +14,7 @@ function App() {
 }
 
 function QuoteBox() {
+  // Array of colors from Bootstrap the app can cycle through
   const dynamicClassPartBackground = [
     "bg-primary",
     "bg-primary-subtle",
@@ -37,6 +38,7 @@ function QuoteBox() {
     )
   };
   
+  // Define state variables and set initial value
   const [color, setColor] = useState(dynamicClassPartBackground[randomNumber(0, dynamicClassPartBackground.length)]);
   const initialQuoteSelect = randomNumber(0, quotes.quotes.length);
   const [quote, setQuote] = useState(quotes.quotes[initialQuoteSelect].quote);
@@ -46,6 +48,7 @@ function QuoteBox() {
   const regex = /^bg-([a-z]+)-*[a-z]*$/ig;
   const buttonColor = "btn-" + color.replace(regex, "$1");
 
+  // Change color of background and buttons through state variables
   function handleClick() {
     setColor(dynamicClassPartBackground[randomNumber(0, dynamicClassPartBackground.length)]);
     const quoteSelect = randomNumber(0, quotes.quotes.length);
